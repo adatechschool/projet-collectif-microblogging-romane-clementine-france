@@ -1,3 +1,5 @@
+{{-- Ici on a un composant "dropdown" qui permet d'afficher les options du compte profile ou log out --}}
+
 @props(['align' => 'right', 'width' => '48', 'contentClasses' => 'py-1 bg-white'])
 
 @php
