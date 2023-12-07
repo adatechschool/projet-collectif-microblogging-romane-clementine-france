@@ -18,7 +18,7 @@ class PostSeeder extends Seeder
     {
         // Log::info($users);
         // Log::info("postseederavant");
-        // \App\Models\Post::factory(10)->create();
+        \App\Models\Post::factory(10)->create();
         // Log::info("postseederaprès");
     }
 }

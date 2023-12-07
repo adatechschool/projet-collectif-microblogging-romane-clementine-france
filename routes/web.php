@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/posts/id', function() {
-    return view('posts', [ 'id'=> '$user_id']);
+Route::get('/posts/{id}', function(Request $request, $id) {
+    return view('posts');
 })->middleware(['auth', 'verified'])->name('posts');
 
 Route::get('/', function () {
