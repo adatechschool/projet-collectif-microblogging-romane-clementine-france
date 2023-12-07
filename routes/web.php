@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,9 +15,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/posts/{id}', function(Request $request, $id) {
-    return view('posts');
-})->middleware(['auth', 'verified'])->name('posts');
+Route::get('/posts', [PostController::class, "allPosts"])->middleware(['auth', 'verified'])->name('posts');
+
+Route::get('/post/{user_id}', [PostController::class, "displayOne"])->middleware(['auth', 'verified'])->name('post');
+
 
 Route::get('/', function () {
     return view('welcome', ['name' => 'Clémentine']);
