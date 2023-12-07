@@ -18,6 +18,7 @@ class Post extends Model
         'image',
     ];
 
+    
         //On crée une fonction user qui définit qu'un post a un seul utilisateur et que celui-ci appartient à la classe user.
     public function user()
     {

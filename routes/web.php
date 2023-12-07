@@ -14,6 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/posts/id', function() {
+    return view('posts', [ 'id'=> '$user_id']);
+})->middleware(['auth', 'verified'])->name('posts');
+
 Route::get('/', function () {
     return view('welcome', ['name' => 'Clémentine']);
 });
