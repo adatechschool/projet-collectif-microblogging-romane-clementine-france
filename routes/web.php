@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 
 //Route qui permet de définir l'uri pour consulter tous les posts
-Route::get('/posts', [PostController::class, "allPosts"])->middleware(['auth', 'verified'])->name('posts');
+Route::get('/dashboard', [PostController::class, "allPosts"])->middleware(['auth', 'verified'])->name('dashboard');
 //Route qui permet de définir l'uri pour consulter un post en fonction de l'user_id (ne marche pas)
 Route::get('/post/{user_id}', [PostController::class, "displayOne"])->middleware(['auth', 'verified'])->name('post');
 
@@ -26,9 +26,9 @@ Route::get('/', function () {
     return view('welcome', ['name' => 'Clémentine']);
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/parameters', [ParametersController::class, 'edit'])->name('parameters.edit');
