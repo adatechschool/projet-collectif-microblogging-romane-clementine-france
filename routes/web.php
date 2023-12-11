@@ -15,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/posts', [PostController::class, "allPosts"])->middleware(['auth', 'verified'])->name('posts');
 
+//Route qui permet de définir l'uri pour consulter tous les posts
+Route::get('/posts', [PostController::class, "allPosts"])->middleware(['auth', 'verified'])->name('posts');
+//Route qui permet de définir l'uri pour consulter un post en fonction de l'user_id (ne marche pas)
 Route::get('/post/{user_id}', [PostController::class, "displayOne"])->middleware(['auth', 'verified'])->name('post');
 
 

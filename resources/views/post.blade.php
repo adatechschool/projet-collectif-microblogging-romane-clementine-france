@@ -1,3 +1,5 @@
+{{-- Ici on affiche les posts d'un user : il faudra que chaque nom d'utilisateur cliqué permette d'accéder à la page de ses posts. --}}
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
@@ -6,12 +8,10 @@
     </x-slot>
 
     <div class="py-12">
-        <p>
-
-            {{ $post->user_id }}
-            {{ $post->content }}
-            {{ $post->image }}
-
-        </p>
+        @foreach ($post as $objet)
+            <li>{{ $objet->user_id }}
+                {{ $objet->content }}
+                {{ $objet->image }}</li>
+        @endforeach
     </div>
 </x-app-layout>
