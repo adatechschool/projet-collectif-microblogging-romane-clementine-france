@@ -16,7 +16,7 @@
 
                 {{-- Texte qui s'affiche si la connexion est bien validée --}}
                 <div class="p-6 text-gray-900">
-                    {{ __("HELLO WORLD") }}
+                    {{ __('HELLO WORLD') }}
                 </div>
             </div>
         </div>
