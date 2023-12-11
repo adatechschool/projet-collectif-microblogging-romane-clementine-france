@@ -11,9 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
-            
+        Schema::table('users', function (Blueprint $table) {
+            $table->text('biography')->nullable();
+            $table->text('profile_picture')->nullable();
         });
+        
     }
 
     /**
@@ -21,8 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('posts', function (Blueprint $table) {
-            //
-        });
+        //
     }
 };
