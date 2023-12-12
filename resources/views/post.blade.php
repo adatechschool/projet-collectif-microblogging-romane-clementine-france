@@ -15,7 +15,7 @@
     </x-slot>
 
     <div class="flex flex-wrap justify-around my-4"
-        style='display:flex; justify-content:flex-start; width:100%; margin-top: 1rem;margin-rigth:2rem; margin-left:2rem'>
+        style='display:flex; justify-content:flex-start; margin-top: 1rem;margin-rigth:2rem; margin-left:2rem'>
         @foreach ($post as $objet)
             <div class="max-w-sm rounded overflow-hidden shadow-lg mx-4 mb-4 md:w-1/4"
                 style='margin-left:1rem; width: 25%;
@@ -24,13 +24,15 @@
                 display:flex; 
                 flex-direction:column;
                 justify-content:space-between; 
+                align-items:center;
                 '>
                 <div
                     style='background-color:black;
                 display:flex;
                 align-items: center;
-                height:100%'>
-                    <img class="w-full" src="{{ asset($objet->image) }}" alt="Sunset in the mountains">
+                height:100%;
+                width:100%'>
+                    <img class="w-full" style="max-height: 20rem; object-fit:cover; overflow:hidden" src="{{ asset($objet->image) }}" alt="Sunset in the mountains">
                 </div>
                 <div
                     style='display:flex; 
@@ -54,7 +56,7 @@
             @if ($loop->iteration % 4 == 0 && !$loop->last)
     </div>
     <div class="flex flex-wrap justify-around my-4"
-        style='display:flex; justify-content:flex-start; width:100%; margin-top: 1rem;margin-rigth:2rem; margin-left:2rem'>
+        style='display:flex; justify-content:flex-start; margin-top: 1rem;margin-rigth:2rem; margin-left:2rem'>
         @endif
         @endforeach
     </div>
