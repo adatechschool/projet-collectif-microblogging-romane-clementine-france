@@ -27,14 +27,6 @@
                 </header>
             @endif
 
-            <div class='container'>
-                @if (session('success'))
-                    <div class='aler.alert-success'>
-                        {{session('success')}}
-                    </div>
-                @endif
-            </div>
-
             <!-- Page Content -->
             <main>
                 {{ $slot }}

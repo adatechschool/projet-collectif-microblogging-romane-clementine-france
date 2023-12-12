@@ -10,6 +10,11 @@
     </x-slot>
 
     <div class="container" style='display:flex; align-items:center; flex-direction:column'>
+            @if (session('success'))
+                <div class='aler.alert-success' style="background-color: rgb(197, 244, 197);border-radius:20px; padding:0.5rem; margin:0.5rem">
+                    {{ session('success') }}
+                </div>
+            @endif
         @foreach ($posts as $post)
             <div class="card" style='width:60%; margin-bottom:2rem'>
                 <h5 class="card-title">Published by

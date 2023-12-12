@@ -10,6 +10,7 @@
 
     <form class="container" style='margin-top:2rem' method="post">
         @csrf
+        <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Description</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"></textarea>
