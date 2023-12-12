@@ -9,7 +9,7 @@
         </h2>
     </x-slot>
 
-    <div class="container" style='display:flex; align-items:center; flex-direction:column'>
+    <div class="container" style='display:flex; align-items:center; flex-direction:column; justify-content:space-around'>
         @if (session('success'))
             <div class='aler.alert-success'
                 style="background-color: rgb(197, 244, 197);border-radius:20px; padding:0.5rem; margin:0.5rem">
@@ -22,7 +22,8 @@
                     <a href="{{ route('profile.post', [$post->user_id]) }}"> {{ Str::upper($post->user->name) }} </a>at
                     {{ $post->created_at }}
                 </h5>
-                <img class="card-img-top" src="{{ asset('https://picsum.photos/200/300') }}" alt="Card image cap">
+                <img class="card-img-top" style='height:30rem; object-fit:contain; width:auto; background-color:black'
+                    src="{{ asset($post->image) }}" alt="Card image cap">
                 <div class="card-body">
                     <p class="card-text">{{ $post->content }}</p>
                 </div>

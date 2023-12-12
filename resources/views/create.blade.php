@@ -8,7 +8,7 @@
         </h2>
     </x-slot>
 
-    <form class="container" style='margin-top:2rem' method="post">
+    <form class="container" style='margin-top:2rem' method="post" enctype="multipart/form-data">
         @csrf
         <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
         <div class="form-group">

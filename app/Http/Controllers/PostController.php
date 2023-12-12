@@ -10,9 +10,10 @@ use Illuminate\Support\Facades\Log;
 
 class PostController extends Controller
 {
-    public function allPosts(){
+    public function allPosts()
+    {
         //On demande à laravel de récupérer tous les objets dans post
-        $posts=Post::orderBy('created_at', 'desc')->with('User')->get();
+        $posts = Post::orderBy('created_at', 'desc')->with('User')->get();
 
         // dd($posts);
         //On retourne la vue avec les posts intégrés
@@ -20,25 +21,34 @@ class PostController extends Controller
         return view('posts', compact('posts'));
     }
 
-    public function displayOne($user_id){
-        $post=Post::where('user_id', $user_id)->with('User')->get();
+    public function displayOne($user_id)
+    {
+        $post = Post::where('user_id', $user_id)->with('User')->get();
         return view('post', compact('post'));
     }
 
     //la fonction create permet d'afficher la vue (le formulaire qui contient la méthode post qui va activer la fonction store)
-    public function create(){
+    public function create()
+    {
         return view('create');
     }
 
-    public function edit(){
+    public function edit()
+    {
         return view('update');
     }
     //la fonction store est actionnée grâce à la méthod post du formulaire généré par create et permet de récupérer et d'envoyer les données vers la BDD.
-    public function store(Request $request){
-        $post=Post::create([
-            'user_id'=>$request->input('user_id'),
-            'content'=>$request->input('content'),
-            'image'=>$request->input('image'),
+    public function store(Request $request)
+    {
+        $image = $request->file('image');
+        $filename = now()->timestamp . '.' . $image->getClientOriginalExtension();
+
+        $image->move(public_path('images/storage'), $filename);
+
+        $post = Post::create([
+            'user_id' => $request->input('user_id'),
+            'content' => $request->input('content'),
+            'image' => 'images/storage/'.$filename,
         ]);
         return redirect()->route('dashboard.posts')->with('success', 'Your post was published successfully');
     }
