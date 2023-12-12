@@ -19,7 +19,7 @@
         @foreach ($posts as $post)
             <div class="card" style='width:60%; margin-bottom:2rem'>
                 <h5 class="card-title">Published by
-                    <a href="{{ route('post', [$post->user_id]) }}"> {{ $post->user_id }} </a>at
+                    <a href="{{ route('profil.post', [$post->user_id]) }}"> {{ $post->user_id }} </a>at
                     {{ $post->created_at }}
                 </h5>
                 <img class="card-img-top" src="{{ asset('images/logo512.png') }}" alt="Card image cap">
