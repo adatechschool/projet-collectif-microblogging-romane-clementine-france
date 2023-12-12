@@ -9,18 +9,6 @@
         </h2>
     </x-slot>
 
-    <form class="container">
-        <div class="form-group">
-            <label for="exampleFormControlTextarea1">Description</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlFile1">Download</label>
-            <input type="file" class="form-control-file" id="exampleFormControlFile1">
-        </div>
-        <button type="submit" class="btn btn-primary">New Post</button>
-    </form>
-
     <div class="container" style='display:flex; align-items:center; flex-direction:column'>
         @foreach ($posts as $post)
             <div class="card" style='width:60%; margin-bottom:2rem'>
