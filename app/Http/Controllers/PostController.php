@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\User;
+use Illuminate\Support\Facades\Log;
 // on fait référence au fichier Post dans Model que l'on appelera "Posts"
 
 class PostController extends Controller
 {
     public function allPosts(){
         //On demande à laravel de récupérer tous les objets dans post
-        $posts=Post::orderBy('created_at', 'desc')->get();
+        $posts=Post::orderBy('created_at', 'desc')->with('User')->get();
+
         // dd($posts);
         //On retourne la vue avec les posts intégrés
         // la methode compact permet de transformer les données en tableau pour les rendre accessibles à la vue.
@@ -18,7 +21,7 @@ class PostController extends Controller
     }
 
     public function displayOne($user_id){
-        $post=Post::where('user_id', $user_id)->get();
+        $post=Post::where('user_id', $user_id)->with('User')->get();
         return view('post', compact('post'));
     }
 

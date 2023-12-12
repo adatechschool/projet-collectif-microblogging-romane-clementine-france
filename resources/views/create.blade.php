@@ -4,12 +4,13 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Feed : ') }}
+            {{ __(' Create a new post : ') }}
         </h2>
     </x-slot>
 
     <form class="container" style='margin-top:2rem' method="post">
         @csrf
+        <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Description</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"></textarea>
