@@ -1,6 +1,5 @@
 {{-- Cette page : page sur laquelle on arrive lorsqu'on est connecté : 
 - Elle doit afficher les derniers posts en date.
-
 --}}
 
 <x-app-layout>
