@@ -19,10 +19,10 @@
         @foreach ($posts as $post)
             <div class="card" style='width:60%; margin-bottom:2rem'>
                 <h5 class="card-title">Published by
-                    <a href="{{ route('profile.post', [$post->user_id]) }}"> {{ $post->user->name }} </a>at
+                    <a href="{{ route('profile.post', [$post->user_id]) }}"> {{ Str::upper($post->user->name) }} </a>at
                     {{ $post->created_at }}
                 </h5>
-                <img class="card-img-top" src="{{ asset('images/logo512.png') }}" alt="Card image cap">
+                <img class="card-img-top" src="{{ asset('https://picsum.photos/200/300') }}" alt="Card image cap">
                 <div class="card-body">
                     <p class="card-text">{{ $post->content }}</p>
                 </div>

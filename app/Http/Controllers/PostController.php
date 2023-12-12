@@ -29,6 +29,10 @@ class PostController extends Controller
     public function create(){
         return view('create');
     }
+
+    public function edit(){
+        return view('update');
+    }
     //la fonction store est actionnée grâce à la méthod post du formulaire généré par create et permet de récupérer et d'envoyer les données vers la BDD.
     public function store(Request $request){
         $post=Post::create([

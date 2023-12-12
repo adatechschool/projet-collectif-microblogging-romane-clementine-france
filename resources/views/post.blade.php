@@ -5,6 +5,11 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             Welcome to the profile of {{ Str::upper($post[0]->user->name) }}
         </h2>
+        <div>
+            <p>{{ $post[0]->user->biography }}</p>
+            <x-primary-button style='margin:1rem'
+                onclick="window.location='{{ route('profile.edit') }}'">Edit...</x-primary-button>
+        </div>
     </x-slot>
 
     <div class="flex flex-wrap justify-around my-4"
@@ -12,7 +17,7 @@
         @foreach ($post as $objet)
             <div class="max-w-sm rounded overflow-hidden shadow-lg mx-4 mb-4 md:w-1/4"
                 style='margin-left:1rem; width:22%'>
-                <img class="w-full" src="{{ asset('images/logo512.png') }}" alt="Sunset in the mountains">
+                <img class="w-full" src="{{ asset('https://picsum.photos/200/300') }}" alt="Sunset in the mountains">
                 <div class="px-6 py-4">
                     <p class="text-gray-700 text-base">
                         {{ $objet->content }}
