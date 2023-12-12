@@ -5,7 +5,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Feed : ') }}
+            {{ __('Latest posts : ') }}
         </h2>
     </x-slot>
 
@@ -19,7 +19,7 @@
         @foreach ($posts as $post)
             <div class="card" style='width:60%; margin-bottom:2rem'>
                 <h5 class="card-title">Published by
-                    <a href="{{ route('profil.post', [$post->user_id]) }}"> {{ $post->user_id }} </a>at
+                    <a href="{{ route('profile.post', [$post->user_id]) }}"> {{ $post->user->name }} </a>at
                     {{ $post->created_at }}
                 </h5>
                 <img class="card-img-top" src="{{ asset('images/logo512.png') }}" alt="Card image cap">
