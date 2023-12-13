@@ -8,7 +8,8 @@
         </h2>
     </x-slot>
 
-    <form class="container" style='margin-top:2rem' method="post">
+    {{-- Pour la gestion d'images il faut ajouter le critère "enctype="multipart/form-data" --}}
+    <form class="container" style='margin-top:2rem' method="post" enctype="multipart/form-data">
         @csrf
         <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
         <div class="form-group">

@@ -28,6 +28,7 @@ Route::prefix('/dashboard')->name('dashboard.')->controller(PostController::clas
 
 Route::prefix('/profile')->name('profile.')->controller(PostController::class)->middleware(['auth', 'verified'])->group(function () {
     Route::get('/post/{user_id}', [PostController::class, "displayOne"])->name('post');
+    Route::get('/edit', [PostController::class, "edit"])->name('edit');
 });
 
 Route::middleware('auth')->group(function () {
