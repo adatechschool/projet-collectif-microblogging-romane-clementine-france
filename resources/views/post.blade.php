@@ -50,6 +50,15 @@
                         <span
                             class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">{{ $objet->created_at }}</span>
                     </div>
+                    <div>
+                        @if ($post[0]->user->id === Auth::user()->id)
+                        <form action="{{ route('profile.delete.post', ['post_id' => $objet->id]) }}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <x-danger-button style='margin-left:1rem; margin-top:1rem'>Delete</x-danger-button>
+                        </form>
+                        @endif
+                    </div>
                 </div>
             </div>
 

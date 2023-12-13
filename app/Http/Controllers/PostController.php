@@ -21,8 +21,25 @@ class PostController extends Controller
 
     public function displayOne($user_id)
     {
+        //Post = le modèle Post PAS LA REQUÊTE POST EN ELLE MÊME #France
         $post = Post::where('user_id', $user_id)->with('User')->get();
         return view('post', compact('post'));
+    }
+
+    //cette fonction permet de supprimer un post
+    public function deleteOne($post_id)
+    {
+        // $post = Post::where('post_id', $post_id)->with('User')->get();
+        // $post->delete();
+        $post = Post::find($post_id);
+
+        if ($post) {
+            $post->delete();
+            return redirect()->route('profile.post',[$post->user_id])->with('success', 'Post supprimé avec succès');
+        } else {
+            // // Gérer le cas où le post n'est pas trouvé
+            // return redirect()->route('profile.post',[$post->user_id])->with('error', 'Post non trouvé');
+        }
     }
 
     //la fonction create permet d'afficher la vue (le formulaire qui contient la méthode post qui va activer la fonction store)
