@@ -32,14 +32,9 @@ class PostController extends Controller
         // $post = Post::where('post_id', $post_id)->with('User')->get();
         // $post->delete();
         $post = Post::find($post_id);
-
-        if ($post) {
-            $post->delete();
-            return redirect()->route('profile.post',[$post->user_id])->with('success', 'Post supprimé avec succès');
-        } else {
-            // // Gérer le cas où le post n'est pas trouvé
-            // return redirect()->route('profile.post',[$post->user_id])->with('error', 'Post non trouvé');
-        }
+        
+        $post->delete();
+        return redirect()->route('profile.post',[$post->user_id])->with('success', 'Post supprimé avec succès');
     }
 
     //la fonction create permet d'afficher la vue (le formulaire qui contient la méthode post qui va activer la fonction store)

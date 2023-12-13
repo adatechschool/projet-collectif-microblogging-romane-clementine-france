@@ -32,15 +32,17 @@
                 align-items: center;
                 height:100%;
                 width:100%'>
-                    <img class="w-full" style="max-height: 20rem; object-fit:cover; overflow:hidden" src="{{ asset($objet->image) }}" alt="Sunset in the mountains">
+                    <img class="w-full"
+                        style="max-height: 20rem; object-fit:cover; object-position:top;
+                    overflow:hidden"
+                        src="{{ asset($objet->image) }}" alt="Sunset in the mountains">
                 </div>
                 <div
                     style='display:flex; 
                 justify-content:space-between; 
-                flex-direction:column; 
-                align-items:flex-end;'>
+                flex-direction:column; '>
                     <div class="px-6 py-4">
-                        <p class="text-gray-700 text-base">
+                        <p class="text-gray-700 text-base line-clamp-2">
                             {{ $objet->content }}
                         </p>
                     </div>
@@ -52,11 +54,11 @@
                     </div>
                     <div>
                         @if ($post[0]->user->id === Auth::user()->id)
-                        <form action="{{ route('profile.delete.post', ['post_id' => $objet->id]) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <x-danger-button style='margin-left:1rem; margin-top:1rem'>Delete</x-danger-button>
-                        </form>
+                            <form action="{{ route('profile.delete.post', ['post_id' => $objet->id]) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <x-danger-button style='margin-left:1rem; margin-top:1rem'>Delete</x-danger-button>
+                            </form>
                         @endif
                     </div>
                 </div>
