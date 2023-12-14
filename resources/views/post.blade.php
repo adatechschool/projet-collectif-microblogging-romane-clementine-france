@@ -9,7 +9,9 @@
             <p>{{ $post[0]->user->biography }}</p>
             @if ($post[0]->user->id === Auth::user()->id)
                 <x-primary-button style='margin-left:1rem; margin-top:1rem'
-                    onclick="window.location='{{ route('profile.edit') }}'">Edit...</x-primary-button>
+                    onclick="window.location='{{ route('profile.edit') }}'">Edit</x-primary-button>
+            @else
+            <x-primary-button style='margin-left:1rem; margin-top:1rem'>Follow</x-primary-button>
             @endif
         </div>
     </x-slot>
@@ -57,12 +59,12 @@
                             <form action="{{ route('profile.delete.post', ['post_id' => $objet->id]) }}" method="post">
                                 @csrf
                                 @method('DELETE')
-                                <x-danger-button style='margin-left:1rem; margin-top:1rem'>Delete</x-danger-button>
+                                <x-danger-button style='margin-left:1rem; margin-bottom:1rem'>Delete</x-danger-button>
                             </form>
                         @endif
                     </div>
                 </div>
-            </div>
+            </div>  
 
             @if ($loop->iteration % 4 == 0 && !$loop->last)
     </div>

@@ -9,12 +9,12 @@
     </x-slot>
 
     {{-- Pour la gestion d'images il faut ajouter le critère "enctype="multipart/form-data" --}}
-    <form class="container" style='margin-top:2rem' method="post" enctype="multipart/form-data">
+    <form style='margin:2rem; width:auto' method="post" enctype="multipart/form-data">
         @csrf
         <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Description</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"></textarea>
+            <textarea style='border-radius:0px; border-color:black;' class="form-control" id="exampleFormControlTextarea1" rows="3" name="content"></textarea>
         </div>
         <div class="form-group">
             <label for="exampleFormControlFile1">Download</label>

@@ -13,7 +13,7 @@
         {{-- le type=hidden permet de récupérer une information tout en la cachant aux yeux des utilisateurs --}}
         <input type="hidden" value="{{ Auth::user()->id }}" name="user_id">
         <div class="form-group" style='display:flex; flex-direction:column; margin:2rem'>
-            <label for="exampleFormControlTextarea1">Biography</label>
+            <label style="margin-bottom:0.5rem;"for="exampleFormControlTextarea1">Biography</label>
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="biography"></textarea>
         </div>
         <x-primary-button type="submit" style='margin-left:2rem' class="btn btn-primary">Update</x-primary-button>

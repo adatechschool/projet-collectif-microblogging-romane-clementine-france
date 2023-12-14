@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\User;
+// use App\Models\User;
 // on fait référence au fichier Post dans Model que l'on appelera "Posts"
 
 class PostController extends Controller
